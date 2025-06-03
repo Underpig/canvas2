@@ -8,7 +8,7 @@ let mouseY;
 
 btn.onclick = function() {
     state = [];
-    //написно делать вертикальные 
+    
     ctx.clearRect(0,0,500,500);
     
     for (let y = 0; y < 5; y += 1) {
@@ -35,7 +35,6 @@ canvas.onclick = function(event) {
     
     if (state[mouseY][mouseX] == false) {
         state[mouseY][mouseX] = true;
-        //alert (mouseX);
         ctx.clearRect(mouseX * 100, mouseY * 100, 100, 100);
         ctx.fillRect(mouseX * 100, mouseY * 100, 100, 100);
         mouseX = null;
@@ -43,7 +42,6 @@ canvas.onclick = function(event) {
 
     } else {
         state[mouseY][mouseX] = false;
-        //alert ('черная');
         ctx.clearRect(mouseX * 100, mouseY * 100, 100, 100);
         ctx.strokeRect(mouseX * 100, mouseY * 100, 100, 100);
         mouseX = null;
