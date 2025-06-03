@@ -17,15 +17,11 @@ btn.onclick = function() {
         for (let i = 0; i < 5; i += 1) {
             let random = Math.random();
             if (random < 0.5) {
-                state[y].push(true);
+               state[y].push(true);
                ctx.fillRect(i * 100, y * 100, 100, 100);
-                //ctx.fillRect(i * 100, y * 100, 100, 100);
-                setTimeout(() => (console.log('i')),1000);
-            } else {
                 
-                //ctx.strokeRect(i * 100, y * 100, 100, 100);
+            } else {
                 ctx.strokeRect(i * 100, y * 100, 100, 100); 
-                setTimeout(() => (console.log('i')),1000);
                 state[y].push(false);
             }
         }
