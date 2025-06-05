@@ -5,7 +5,7 @@ let state =[];
 let mouseX;
 let mouseY;
 let canvasSize = 500;
-let squareAmount = 10;
+let squareAmount = 11;
 let squareSize = canvasSize / squareAmount;
 
 
@@ -32,6 +32,17 @@ btn.onclick = function() {
     }
 }
 
+function drawFill() {
+    ctx.clearRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
+    ctx.fillRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
+}
+
+function drawStroke() {
+    ctx.clearRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
+    ctx.strokeRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
+}
+
+
 
 canvas.onclick = function(event) {
     mouseX = Math.floor(event.offsetX/squareSize);
@@ -39,18 +50,13 @@ canvas.onclick = function(event) {
 
     if (state[mouseY][mouseX] === false) {
         state[mouseY][mouseX] = true;
-        //alert (mouseX);
-        ctx.clearRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
-        ctx.fillRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
-
+        drawFill();
         mouseX = null;
         mouseY = null;
 
     } else {
         state[mouseY][mouseX] = false;
-        //alert ('черная');
-        ctx.clearRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
-        ctx.strokeRect(mouseX * squareSize, mouseY * squareSize, squareSize, squareSize);
+        drawStroke();
         mouseX = null;
         mouseY = null;
     }
